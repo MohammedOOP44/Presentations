@@ -1,10 +1,8 @@
 import numpy as np
 
-# vectorized math funcs
+# Elemete_wise arithmatic 
+array1 = np.array([1,2,3])
+array2 = np.array([4,5,6])
 
-radii = np.array([1,2,3])
-
-print(np.sqrt(array))
-print(np.round(array))
-print(np.floor(array))
-print(np.ceil(array))
+print(array1 + array2)
+print(array1 - array2)
