@@ -1,12 +1,16 @@
 from turtle import Turtle , Screen
 import random
 
-class Food:
+class Food(Turtle):
     def __init__(self):
-        pass
+       super().__init__()
+       self.shape("circle")
+       self.color("red")
+       self.penup()
+       self.shapesize(0.5,0.5)
+       self.appear()
 
-    def create_food(self):
-        f = Turtle("circle")
-        f.color("red")
-        f.penup()
-        f.goto(random.randint(1,800),random.randint(1,800))
+    def appear(self):
+        x = random.randint(-350,350)
+        y = random.randint(-350,350)
+        self.goto(x,y)
