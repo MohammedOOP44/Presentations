@@ -1,9 +1,9 @@
-def multiply_list(a,b):
-    result = []
-    for i in a :
-        result.append(i*b)
-    return result
+def print_name(*arg):
+    for i in arg :
+        print(i , end=" ")
 
-list = [1,2,3]
-n = 100
-print(multiply_list(list,n))
+    print()
+
+print_name('mohammed')
+print_name('mohammed','salah')
+print_name('mohammed','salah', 'mahdi')
