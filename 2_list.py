@@ -55,8 +55,18 @@ class Matrix:
                 result_arr.append(row)
             return Matrix(result_arr)
         
-        
-        
+        elif isinstance(other,int):
+            new_data = []
+
+            for i in range(len(self.data)):
+                row = []
+
+                for j in range(len(self.data[0])):
+                    row.append(self.data[i][j] * other)
+                new_data.append(row)
+            return Matrix(new_data)
+                    
+
     def __rmul__(self,other):
         return self.__mul__(other)
         
@@ -64,6 +74,7 @@ m_list = Matrix(m)
 n_list = Matrix(n)
 
 (m_list*n_list).display()
+(m_list*4).display()
 
         
 
