@@ -36,18 +36,18 @@ class CurrentAccount(BankAccount):
     def calculate_interest(self):
         return self.get_balance() * 0.01
 
-if __name__ == "__main__":
 
-    saving = SavingAccount("mohammed",100)
-    current = CurrentAccount("Ali",200)
 
-    saving.deposit(10)
-    current.deposit(10)
+saving = SavingAccount("mohammed",100)
+current = CurrentAccount("Ali",200)
 
-    for acc in [saving,current]:
-        print(f"owner : {acc.owner}")
-        print(f"balance : {acc.get_balance()}")
-        print(f"Interest : {acc.calculate_interest():.2f}")
+saving.deposit(10)
+current.deposit(10)
+
+for acc in [saving,current]:
+    print(f"owner : {acc.owner}")
+    print(f"balance : {acc.get_balance()}")
+    print(f"Interest : {acc.calculate_interest():.2f}")
 
 
 
