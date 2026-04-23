@@ -1,21 +1,20 @@
 from tkinter import *
 
-window = Tk()    # instantiate an instance of the window
-window.geometry("300x300")
-window.title("Hello")
-window.config(background="black")
+# button = ya click it , then it does stuff 
 
+count = 0
+def Click():
+    global count 
+    count += 1
+    button.config(text=f"clicks: {count}")
 
-label = Label(window,
-              text="Hello Programming",
-              fg="blue",
-              font=("Arial",40,"normal"),
-              relief=RAISED,
-              bd=10)
+window = Tk()
 
+button = Button(window,
+                text="click me",
+                command=Click)
 
-label.pack()
+button.pack()
 
 
 window.mainloop()
-
