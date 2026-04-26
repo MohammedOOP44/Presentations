@@ -1,6 +1,6 @@
-def my_funtion(a,b,c):
-    return a+b+c
+def my_funtion(fname,lname):
+    print("hello",fname,lname)
 
-nums = [1,2,3]
-result = my_funtion(*nums)
-print(result)
+person = {'fname':'mohammed',
+          'lname':'salah'}
+my_funtion(**person)

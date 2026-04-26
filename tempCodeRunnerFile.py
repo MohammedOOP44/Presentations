@@ -1,1 +1,1 @@
-square
+CREATE TABLE

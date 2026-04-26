@@ -37,5 +37,9 @@ while game_on :
         game_on = False
         score.game_over()
 
+    for segment in sam.turtles[:-1]:
+        if sam.head.distance(segment) < 10:
+            game_on = False
+            score.game_over()
 
 window.exitonclick()
