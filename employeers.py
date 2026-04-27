@@ -1,26 +1,67 @@
-class Employeer:
-    def __init__(self,id,name,salary,department):
-        self.id = id
+import tkinter as tk
+class Item :
+    def __init__(self,name,quantity):
         self.name = name
-        self.salary = salary
-        self.department = department
+        self.quantity = quantity
 
-    def calculate_emp_salary(self,salary,hours_worked):
-        if hours_worked > 50:
-            overtime = hours_worked - 50
-            Overtime_amount = (overtime * (salary/50))
-            return self.salary + Overtime_amount
-        return self.salary
+    def __str__(self):
+        return f"{self.name} (Qty: {self.quantity})"
+    
+class ItemManagementSystem:
+    def __init__(self):
+        self.items = []
 
-    def emp_assign_department(self,new_department):
-        self.department = new_department
-        return self.department
+    def add_item(self,name,quantity):
+        item = Item(name,quantity)
+        self.items.append(item)
 
-    def print_employee_details(self):
-        print(f"id: {self.id}")
-        print(f"name: {self.name}")
-        print(f"salary: {self.salary}")
-        print(f"department: {self.department}")
+    def remove_item(self,name):
+        self.items = [item for item in self.items if item.name != name]
 
-emp1 = Employeer(1221,"abbas",1000,"big data")
-emp1.print_employee_details()
+    def get_item(self):
+        return self.items
+    
+class ItemApp:
+    def __init__(self,window):
+        self.window = window
+        self.system = ItemManagementSystem()
+        self.window.title("Item App")
+
+        tk.Label(window,text="item Name").pack()
+        self.name_entry = tk.Entry(window)
+        self.name_entry.pack()
+
+        tk.Label(window,text="Quantity").pack()
+        self.Quantity_entry = tk.Entry(window)
+        self.Quantity_entry.pack()
+
+        tk.Button(window,text='add item',command=self.add_item).pack()
+        tk.Button(window,text='remove item',command=self.remove_item).pack() 
+
+        self.listbox = tk.Listbox(window,width=55)
+        self.listbox.pack()
+
+    def add_item(self):
+        name = self.name_entry.get()
+        Qty = int(self.Quantity_entry.get())
+        self.system.add_item(name,Qty)
+        self.update_listbox()
+
+    def remove_item(self):
+        selection = self.listbox.curselection()
+        if selection :
+            item_text = self.listbox.get(selection[0])
+            item_name = item_text.split(" (")[0]
+            self.system.remove_item(item_name)
+            self.update_listbox()
+
+    def update_listbox(self):
+        self.listbox.delete(0,tk.END)
+        for item in self.system.get_item():
+            self.listbox.insert(tk.END,str(item))
+
+
+window = tk.Tk()
+app = ItemApp(window)
+window.mainloop()
+        
