@@ -1,16 +1,14 @@
 import random
 import string
-
 def generate_passwords_simple(count=100):
     
     caps = string.ascii_uppercase
-    # All allowed: A-Za-z, 0-9, and our 5 symbols
+    
     others = string.ascii_letters + string.digits + "@#$%&"
     
     passwords = set()
     
     while len(passwords) < count:
-        # 1. Pick the first character (A-Z)
         first_char = random.choice(caps)
         
         # 2. Pick the other 6 characters

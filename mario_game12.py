@@ -3,9 +3,9 @@
 #  Student B will EXTEND this file,
 #  adding enemies, coins, UI, camera, etc.
 # ──────────────────────────────────────────
-from constants import SCREEN_WIDTH,SCREEN_HEIGHT,SCREEN_TITLE
-from player import Player
-from game_platform import Platform
+from constants12 import SCREEN_WIDTH,SCREEN_HEIGHT,SCREEN_TITLE
+from player12 import Player
+from game_platform12 import Platform
 import arcade
 
 
@@ -81,7 +81,6 @@ class Mario_Game(arcade.Window):
             self.player.is_on_ground = False 
 
             
-
     def reset_level(self):
         self.player.reset()
         self.platforms.clear()

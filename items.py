@@ -1,13 +1,14 @@
 import tkinter as tk
+
 class Item :
     def __init__(self,name,quantity):
-        self.name = name
-        self.quantity = quantity 
+        self.name = name 
+        self.quantity = quantity
 
     def __str__(self):
-        return f"{self.name} (Qty: {self.quantity})"
+        return f"{self.name} (Qty:{self.quantity})"
     
-class ItemManagementSystem:
+class ItemManagmentSystem:
     def __init__(self):
         self.items = []
 
@@ -16,30 +17,29 @@ class ItemManagementSystem:
         self.items.append(item)
 
     def remove_item(self,name):
-        self.items = [item for item in self.items if item.name != name]
+        self.items = [i for i in self.items if i.name != name]
 
     def get_item(self):
         return self.items
     
-class ItemApp:
+class ItemApp :
     def __init__(self,window):
         self.window = window
-        self.system = ItemManagementSystem()
-        self.window.title("Item Managment System")
+        self.system = ItemManagmentSystem()
+        self.window.title("Item App")
 
-        # Then it builds all the visual stuff 
         tk.Label(window,text="Item Name").pack()
         self.name_entry = tk.Entry(window)
         self.name_entry.pack()
 
-        tk.Label(window,text="Quantity").pack()
+        tk.Label(window,text="quantity").pack()
         self.quantity_entry = tk.Entry(window)
         self.quantity_entry.pack()
 
         tk.Button(window,text="Add Item",command=self.add_item).pack()
         tk.Button(window,text="Remove Item",command=self.remove_item).pack()
 
-        self.listbox = tk.Listbox(window,width=44)
+        self.listbox = tk.Listbox(window,width=55)
         self.listbox.pack()
 
     def add_item(self):
@@ -50,7 +50,7 @@ class ItemApp:
 
     def remove_item(self):
         selection = self.listbox.curselection()
-        if selection:
+        if selection :
             item_text = self.listbox.get(selection[0])
             item_name = item_text.split(" (")[0]
             self.system.remove_item(item_name)
@@ -62,8 +62,11 @@ class ItemApp:
             self.listbox.insert(tk.END,str(item))
 
 window = tk.Tk()
-app = ItemApp(window)
+App = ItemApp(window)
 window.mainloop()
+
+
+
 
 
 
