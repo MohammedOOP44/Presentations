@@ -19,14 +19,14 @@ class Student(Person):
         self.student_id = student_id
         self.major = major 
 
-    def __repr__(self):
+    def __str__(self):
         return f"name: {self.name},age: {self.age},ID: {self.student_id},major: {self.major}"
 
     def get_role(self):
         return "STUDENT"
     
     def show_details(self):
-        return f"name: {self.name},age: {self.age},ID: {self.student_id},major: {self.major}"
+        return str(self)
 
 class Teacher(Person):
     def __init__(self,name,age,subject):
@@ -40,7 +40,7 @@ class Teacher(Person):
         return "TEACHER"
     
     def show_details(self):
-        return f"name: {self.name},age: {self.age},subject: {self.subject}"
+        return str(self)
     
 class Course:
     def __init__(self,course_name,course_code,teacher):
@@ -50,13 +50,18 @@ class Course:
         self.students = []
 
     def __str__(self):
-        return f"course: {self.course_name},course_code: {self.course_code},teacher: {self.teacher},students: {self.students}"
+        return f"course: {self.course_name},course_code: {self.course_code},teacher: {self.teacher},students_enrolled: {self.students}"
 
     def add_student(self,student):
         self.students.append(student)
         
     def show_course_details(self):
-        return f"course: {self.course_name},course_code: {self.course_code},teacher: {self.teacher},students_enrolled: {self.students}"
+        output = f"course: {self.course_name},course_code: {self.course_code},teacher: {self.teacher}\n"
+        output += "students_enrolled\n"
+
+        for student in self.students:
+            output += f"{student}\n"
+        return output 
     
 
 teacher1 = Teacher("Adel",55,"scince")
@@ -69,7 +74,7 @@ course1 = Course("python",111,teacher1)
 course1.add_student(student1)
 course1.add_student(student2)
 
-print(teacher1.show_details())
-print(student1.show_details())
-print(student2.show_details())
+#print(teacher1.show_details())
+#print(student1.show_details())
+#print(student2.show_details())
 print(course1.show_course_details())
