@@ -34,7 +34,6 @@ def update_student(student_id,new_grade):
     df.loc[df['ID'] == student_id ,'grade'] = new_grade
     save_data(df)
 
-
 def delete_student(student_id):
     df = load_data()
     df = df[df['ID'] != student_id]
@@ -59,7 +58,7 @@ def import_students_from_csv(csv_file):
     new_df = pd.read_csv(csv_file)
     new_df = new_df.dropna(subset=['name','age','grade'])
     new_df['ID'] = range(df['ID'].max() + 1 if not df.empty else 1,
-                     df['ID'].max() + 1 + len(new_df))
+                         df['ID'].max() + 1 + len(new_df))
     df = pd.concat([df,new_df],ignore_index=True)
     save_data(df)
     print("print student imported successfully from csv")
