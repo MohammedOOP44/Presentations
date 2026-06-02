@@ -33,4 +33,4 @@ def evaluate_prefix(expression):
     return final_answer
 
 test_expression = "+ - 1 2 5"
-print(evaluate_prefix(test_expression))
+print(evaluate_prefix(test))
