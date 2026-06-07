@@ -87,7 +87,7 @@ def menu():
 
         if choice == 1:
             name = input("Enter the student name:")
-            age = input("Enter the student age:")
+            age = int(input("Enter the student age:"))
             grade = input("Enter the student grade:")
             add_student(name,age,grade)
 
