@@ -9,8 +9,7 @@ class PasswordGenerator:
         self.use_uppercase = False
         self.use_lowercase = False
         self.use_digits = False
-        self.use_symbols = False
-
+        self.use_symbols = False 
         self.set_preference()
 
     def ask_yes_no(self,question):
