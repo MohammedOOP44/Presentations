@@ -1,20 +1,13 @@
-def dicemal_to_binary(num):
+def dicimal_to_binary(num):
     if num == 0:
         return 0
     
     stack = []
-
-    while num > 0:
-        digit = num % 2
+    while num > 0 :
+        digit = num % 2 
         stack.append(digit)
-        num = num // 2
+        num //= 2
 
-    binary_string = ""
+    return "".join(str(stack.pop()) for _ in range(len(stack)))
 
-    while len(stack) > 0:
-        digit = stack.pop()
-        binary_string += str(digit)
-
-    return binary_string
-
-print(dicemal_to_binary(100))
+print(dicimal_to_binary(5))
