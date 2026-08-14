@@ -1,0 +1,36 @@
+name: cdc-mvp 
+
+networks:
+  cdc_network:
+    driver: bridge 
+
+volumes: 
+  postgres_data:
+  redpanda_data:
+
+services:
+  postgres: 
+    image: postgres:16
+    container_name: postgres
+    hostname: postgres 
+    environment: 
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: postgres 
+      POSTGRES_DB: sourcedb
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
+      - "-c"
+      - "max-wal-senders=4"
+      - "-c"
+      - "max_replication_slots=4"
+    posrts:
+    
+
+    volumes:
+
+    networks:
+
+    healthcheck:
+    
